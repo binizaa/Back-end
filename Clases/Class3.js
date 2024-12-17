@@ -70,9 +70,24 @@ dividir(6, 3)
         console.log({ error });
     });
 
-
+console.log("\n");
 /** Synchornism vs. Asynchronism
  * 
  * Synchronism: You have to finish an action for the next one to continue - Blocking.
  * Asynchronism: Work in parallel - Non-blocking.
 */
+
+const asyncFunction = async () => {
+    try{
+        let result = await divide(6, 2)
+        console.log({result})
+    }
+    catch(error){
+        console.log({error})
+    }
+    finally{
+        console.log("We have tried the division")
+    }
+}
+
+asyncFunction()
