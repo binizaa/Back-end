@@ -1,29 +1,11 @@
 [
   {
-    "title": "Laptop",
-    "description": "A high-performance laptop",
+    "title": "Mochila :))",
+    "description": "A high-performance backpack",
     "price": 1500,
     "thumbnail": "https://example.com/laptop.jpg",
-    "code": "LT123",
+    "code": "LT127",
     "stock": 5,
-    "id": 1
-  },
-  {
-    "title": "Mouse",
-    "description": "An ergonomic mouse",
-    "price": 25,
-    "thumbnail": "https://example.com/mouse.jpg",
-    "code": "MS456",
-    "stock": 50,
-    "id": 2
-  },
-  {
-    "title": "Keyboard",
-    "description": "A mechanical RGB keyboard",
-    "price": 100,
-    "thumbnail": "https://example.com/keyboard.jpg",
-    "code": "KB789",
-    "stock": 20,
     "id": 3
   },
   {
@@ -34,15 +16,6 @@
     "code": "MN123",
     "stock": 15,
     "id": 4
-  },
-  {
-    "title": "Smartphone",
-    "description": "A smartphone with 128GB storage",
-    "price": 800,
-    "thumbnail": "https://example.com/smartphone.jpg",
-    "code": "SP456",
-    "stock": 30,
-    "id": 5
   },
   {
     "title": "Tablet",
@@ -106,5 +79,32 @@
     "code": "PR789",
     "stock": 8,
     "id": 12
+  },
+  {
+    "title": "Mochila",
+    "description": "A high-performance backpack",
+    "price": 1500,
+    "thumbnail": "https://example.com/laptop.jpg",
+    "code": "LT124",
+    "stock": 5,
+    "id": 13
+  },
+  {
+    "title": "Mochila",
+    "description": "A high-performance backpack",
+    "price": 1500,
+    "thumbnail": "https://example.com/laptop.jpg",
+    "code": "LT124",
+    "stock": 5,
+    "id": 13
+  },
+  {
+    "title": "Mochila :))",
+    "description": "A high-performance backpack",
+    "price": 1500,
+    "thumbnail": "https://example.com/laptop.jpg",
+    "code": "LT127",
+    "stock": 5,
+    "id": 14
   }
 ]
