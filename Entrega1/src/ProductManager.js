@@ -8,23 +8,42 @@ class ProductManager {
 
     async addProduct(product) {
         try {
+            // Load products
             this.products = await this.getProducts();
     
-            const existingProduct = this.products.find(p => p.code === product.code);
-            if (existingProduct) {
-                throw new Error(`The product with code "${product.code}" already exists.`);
+            // Ensure products is an array
+            if (!Array.isArray(this.products)) {
+                throw new Error("Products data is not an array");
             }
     
-            product.id = this.products.length > 0 ? this.products[this.products.length - 1].id + 1 : 1;
+            // Add unique ID and push the new product
+            product.id = this.products.length > 0 
+                ? this.products[this.products.length - 1].id + 1 
+                : 1;
     
             this.products.push(product);
     
+            // Save to file
             await fs.promises.writeFile(this.path, JSON.stringify(this.products, null, 2), 'utf-8');
-            console.log("Product added successfully:", product);
     
+            console.log("Product added successfully:", product);
             return { status: 'success', product };
         } catch (error) {
-            throw new Error(`${error.message}`);
+            throw new Error(`Failed to add product: ${error.message}`);
+        }
+    }
+    
+
+    async getProducts() {
+        try {
+            const result = await fs.promises.readFile(this.path, 'utf-8');
+            return JSON.parse(result);
+        } catch (error) {
+            if (error.code === 'ENOENT') {
+                return [];
+            } else {
+                throw new Error(`Error reading the file: ${error.message}`);
+            }
         }
     }  
     
@@ -46,22 +65,6 @@ class ProductManager {
         } catch (error) {
             console.error("Error deleting product:", error.message);
             throw new Error(`Failed to delete product: ${error.message}`);
-        }
-    }
-    
-
-    async getProducts() {
-        try {
-            const result = await fs.promises.readFile(this.path, 'utf-8');
-            const products = JSON.parse(result);
-            return products
-        } catch (error) {
-            if (error.code === 'ENOENT') {
-                console.warn("File not found. Returning an empty product list.");
-            } else {
-                console.error("Error reading the file:", error);
-            }
-            return [];
         }
     }
 

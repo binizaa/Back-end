@@ -106,5 +106,32 @@
     "code": "LT127",
     "stock": 5,
     "id": 14
+  },
+  {
+    "title": "Mochila",
+    "description": "A high-performance backpack",
+    "price": 1500,
+    "thumbnail": "https://example.com/laptop.jpg",
+    "code": "LT12",
+    "stock": 5,
+    "id": 15
+  },
+  {
+    "title": "Mochila",
+    "description": "A high-performance backpack",
+    "price": 1500,
+    "thumbnail": "https://example.com/laptop.jpg",
+    "code": "LT12",
+    "stock": 5,
+    "id": 16
+  },
+  {
+    "title": "Mochila",
+    "description": "A high-performance backpack",
+    "price": 1500,
+    "thumbnail": "https://example.com/laptop.jpg",
+    "code": "LT12",
+    "stock": 5,
+    "id": 17
   }
 ]
