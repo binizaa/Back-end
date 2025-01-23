@@ -1,34 +1,20 @@
 import ProductManager from './ProductManager.js';
-import Product from './Product.js';
 import express from 'express'
+import productsRouter from './routes/products.routes.js';
+import cartsRouter from './routes/carts.routes.js';
 
 const manager = new ProductManager('./src/products.json');
 let products = await manager.getProducts();
 
 const app = express()
-/** Important for parsing form data */
+const PORT = 8080
+
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/products', (req, res) => {
-    const limit = parseInt(req.query.limit); 
+app.use('/api/products', productsRouter);
+app.use('/api/carts', cartsRouter);
 
-    if (!isNaN(limit)) {
-        return res.send({ products: products.slice(0, limit) });
-    }
-
-    res.send({ products });
-});
-
-app.get('/products/:id', (req, res) => {
-
-    const id = parseInt(req.params.id)
-    const selectedProduct = products.find(product => product.id === id)
-
-    if(!selectedProduct) return res.send("Product not found")
-    
-        res.send({selectedProduct})
-})
-
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log('Listening on port 8080')
 })
